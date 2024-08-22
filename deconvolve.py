@@ -35,7 +35,7 @@ def hide_small_tissues(df):
     """
     others = df[df < OTHERS_THRESH].sum()
     df[df < OTHERS_THRESH] = 0.0
-    df = df.append(others.rename('other'))
+    df = pd.concat([df,others.rename('other')])
     return df
 
 
